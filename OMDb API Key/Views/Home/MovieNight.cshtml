@@ -1,0 +1,61 @@
+﻿@model List<Movie>
+<h2>Search 3 Movies by Titles</h2>
+<br />
+<form method="post">
+    <p>Title 1</p>
+    <input type="text" name="title1" />
+    <br />
+    <p>Title 2</p>
+    <input type="text" name="title2" />
+    <br />
+    <p>Title 3</p>
+    <input type="text" name="title3" />
+    <br />
+    <br/>
+    <input type="submit" />
+    <br />
+    <br/>
+
+
+    @try
+    {
+        @foreach (Movie m in Model)
+        {
+            <div style="border: 1px solid black">
+                <p>Title: @m.Title</p>
+                <p>Year: @m.Year</p>
+                <p>Rated: @m.Rated</p>
+                <p>Released: @m.Released</p>
+                <p>Runtime: @m.Runtime</p>
+                <p>Genre: @m.Genre</p>
+                <p>Director: @m.Director</p>
+                <p>Writer: @m.Writer</p>
+                <p>Actor: @m.Actors</p>
+                <p>Plot: @m.Plot</p>
+                <p>Language: @m.Language</p>
+                <p>Country: @m.Country</p>
+                <p>Awards: @m.Awards</p>
+                <p>Poster: @m.Poster</p>
+                @foreach (Rating r in m.Ratings)
+                {
+                    <p>Rating: @r.Source</p>
+                    <p>Value: @r.Value</p>
+                }
+                <p>Metascore: @m.Metascore</p>
+                <p>imdbRating: @m.imdbRating</p>
+                <p>imdbVotes: @m.imdbVotes</p>
+                <p>imdbID: @m.imdbID</p>
+                <p>Type: @m.Type</p>
+                <p>DVD: @m.DVD</p>
+                <p>BoxOffice: @m.BoxOffice</p>
+                <p>Production: @m.Production</p>
+                <p>Website: @m.Website</p>
+                <p>Response: @m.Response</p>
+                </div>
+                }
+                }
+                catch (NullReferenceException)
+                {
+
+                }
+        </form>
